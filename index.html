@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Chaithanya Kumar Mandula | IT Student</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<title>Chaithanya Kumar Mandula — Software Engineer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Portfolio of Chaithanya Kumar Mandula, IT student and software engineer specializing in Python, AWS cloud and AI/ML projects." />
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <nav class="container">
-    <div class="logo"><span>Chaithanya</span> Kumar</div>
+<div class="progress-bar" id="progress-bar"></div>
+
+<header id="site-header">
+  <nav class="container nav">
+    <a href="#home" class="logo">Chaithanya<span class="logo-dot">.</span></a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="burger">
-      <div></div><div></div><div></div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Switch between light and dark theme">
+        <i class="fa-solid fa-sun icon-sun"></i>
+        <i class="fa-solid fa-moon icon-moon"></i>
+      </button>
+      <button class="burger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <div></div><div></div><div></div>
+      </button>
     </div>
   </nav>
 </header>
@@ -30,21 +43,26 @@
 <!-- HERO -->
 <section id="home" class="hero">
   <div class="container hero-content">
-    <div class="hero-text">
-      <h1>Hi, I'm <span>Chaithanya Kumar Mandula</span></h1>
-      <h2>B.Tech Information Technology Student</h2>
-      <p>
-        Hard-working and consistent IT student looking for internship opportunities
-        to apply skills and contribute to real-world projects.
+    <div class="hero-text reveal">
+      <p class="eyebrow mono">Software Engineer · IT Student</p>
+      <h1>Hi, I'm <span class="accent">Chaithanya Kumar Mandula</span></h1>
+      <h2 class="hero-sub">B.Tech Information Technology, ALIET Vijayawada</h2>
+      <p class="hero-para">
+        Hard-working and consistent IT student building full-stack, cloud and AI-powered
+        applications — from computer-vision systems to production deployments on AWS.
+        Looking for an internship to contribute to real-world projects.
       </p>
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-secondary">Contact</a>
+        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+      </div>
+      <div class="hero-tags mono">
+        <span>Python</span><span>AWS</span><span>Flask</span><span>AI / ML</span>
       </div>
     </div>
 
-    <div class="hero-image">
-      <img src="WhatsApp Image 2025-02-05 at 21.58.15_eaf7a7ac.jpg" class="profile-img" />
+    <div class="hero-image reveal">
+      <img src="profile.jpg" alt="Chaithanya Kumar Mandula" class="profile-img" />
     </div>
   </div>
 </section>
@@ -52,40 +70,73 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <h2 class="section-title">About <span>Me</span></h2>
+    <h2 class="section-title reveal"><span class="eyebrow-num mono">01</span> About</h2>
 
-    <p class="center-text">
-      I am a 2nd year B.Tech student at Andhra Loyola Institute of Engineering and Technology (ALIET),
-      Vijayawada. I enjoy backend development, database design, and building practical applications.
+    <p class="center-text reveal">
+      I'm a 2nd-year <strong>B.Tech Information Technology</strong> student at Andhra Loyola Institute of
+      Engineering and Technology (ALIET), Vijayawada, with a background in web development &amp; hosting,
+      Python, and cloud-based application deployment. I enjoy backend development, database design, and
+      turning ideas into practical, deployed applications.
     </p>
 
-    <div class="info-grid">
-      <div><strong>Email:</strong> chaithanyakumar002@gmail.com</div>
-      <div><strong>Phone:</strong> +91 9515744913</div>
-      <div><strong>GitHub:</strong> <a href="https://github.com/Chaithanyamandula" target="_blank">github.com/Chaithanyamandula</a></div>
-      <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chaithanya-kumar-163b432b1/" target="_blank">LinkedIn Profile</a></div>
+    <div class="info-grid reveal">
+      <div class="info-card">
+        <i class="fa-solid fa-envelope"></i>
+        <div><span class="label mono">Email</span><a href="mailto:chaithanyakumar002@gmail.com">chaithanyakumar002@gmail.com</a></div>
+      </div>
+      <div class="info-card">
+        <i class="fa-solid fa-phone"></i>
+        <div><span class="label mono">Phone</span><a href="tel:+919515744913">+91 95157 44913</a></div>
+      </div>
+      <div class="info-card">
+        <i class="fa-brands fa-github"></i>
+        <div><span class="label mono">GitHub</span><a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener">github.com/Chaithanyamandula</a></div>
+      </div>
+      <div class="info-card">
+        <i class="fa-brands fa-linkedin"></i>
+        <div><span class="label mono">LinkedIn</span><a href="https://www.linkedin.com/in/chaithanya-kumar-163b432b1/" target="_blank" rel="noopener">Chaithanya Kumar</a></div>
+      </div>
     </div>
-
-    <!-- <div class="center">
-      <a href="Resume - updated-1.pdf" download class="btn btn-primary">Download Resume</a>
-    </div> -->
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="light">
+<section id="skills" class="alt">
   <div class="container">
-    <h2 class="section-title">Technical <span>Skills</span></h2>
+    <h2 class="section-title reveal"><span class="eyebrow-num mono">02</span> Technical Skills</h2>
 
-    <div class="skills">
-      <span>Python</span>
-      <span>C</span>
-      <span>Data Structures</span>
-      <span>Object Oriented Programming</span>
-      <span>Descriptive Statistics</span>
-      <span>MySQL</span>
-      <span>Django</span>
-      <span>AWS (Basics)</span>
+    <div class="skills-groups">
+      <div class="skill-group reveal">
+        <h3 class="mono group-label">Tech Stack</h3>
+        <div class="skills">
+          <span class="pill">Python</span>
+          <span class="pill">Java</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">C</span>
+          <span class="pill">Django</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <h3 class="mono group-label">Cloud</h3>
+        <div class="skills">
+          <span class="pill pill-alt">AWS EC2</span>
+          <span class="pill pill-alt">S3</span>
+          <span class="pill pill-alt">RDS</span>
+          <span class="pill pill-alt">Route 53</span>
+          <span class="pill pill-alt">Load Balancer</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <h3 class="mono group-label">Core Concepts</h3>
+        <div class="skills">
+          <span class="pill pill-mute">APIs</span>
+          <span class="pill pill-mute">OOP</span>
+          <span class="pill pill-mute">Data Structures</span>
+          <span class="pill pill-mute">Descriptive Statistics</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -93,66 +144,201 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="container">
-    <h2 class="section-title">My <span>Projects</span></h2>
+    <h2 class="section-title reveal"><span class="eyebrow-num mono">03</span> My Projects</h2>
+    <p class="section-sub reveal mono">Click a card to flip and see details</p>
 
-    <div class="project">
-      <h3>Criminal Face Detection</h3>
-      <p>
-        A system used for analyzing criminal faces and storing criminal records
-        in a database for quick access by police departments.
-      </p>
-      <p><strong>Tech:</strong> Python, OpenCV, FaceRecognition, NumPy</p>
-      <a href="https://github.com/Chaithanyamandula/Criminal-Face-Detection" target="_blank">GitHub Link</a>
+    <div class="projects-grid">
+
+      <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Criminal Face Detection System, click to flip">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="fa-solid fa-fingerprint project-icon"></i>
+            <h3>Criminal Face Detection</h3>
+            <p class="flip-note mono"><i class="fa-solid fa-arrows-rotate"></i> click to flip for details</p>
+          </div>
+          <div class="flip-card-back">
+            <div>
+              <h3>Criminal Face Detection</h3>
+              <p>Facial recognition system for law enforcement to detect, identify and manage criminal
+                records in real time — capturing facial features, matching them against a centralized
+                database for fast identification during investigations.</p>
+              <div class="tech-tags">
+                <span>Python</span><span>OpenCV</span><span>Face Recognition</span><span>NumPy</span><span>Flask</span><span>MySQL</span>
+              </div>
+            </div>
+            <a href="https://github.com/Chaithanyamandula/Criminal-Face-Detection" target="_blank" rel="noopener" class="repo-link">
+              <i class="fa-brands fa-github"></i> View Repository
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Real-Time Cloud Predictor, click to flip">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="fa-solid fa-cloud-bolt project-icon"></i>
+            <h3>Real-Time Cloud Predictor</h3>
+            <p class="flip-note mono"><i class="fa-solid fa-arrows-rotate"></i> click to flip for details</p>
+          </div>
+          <div class="flip-card-back">
+            <div>
+              <h3>Real-Time Cloud Predictor</h3>
+              <p>AI-powered climate prediction system analyzing satellite imagery with CNNs to detect
+                cloud clusters, predict movement &amp; speed, and classify conditions as Safe or Risk —
+                auto-alerting authorities via email, phone and connected-device sirens.</p>
+              <div class="tech-tags">
+                <span>Python</span><span>Flask</span><span>CNN</span><span>Computer Vision</span><span>SMTP</span><span>APIs</span>
+              </div>
+            </div>
+            <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" class="repo-link">
+              <i class="fa-brands fa-github"></i> View GitHub Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Kisan Sahayak Smart Agriculture App, click to flip">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="fa-solid fa-seedling project-icon"></i>
+            <h3>Kisan Sahayak</h3>
+            <p class="flip-note mono"><i class="fa-solid fa-arrows-rotate"></i> click to flip for details</p>
+          </div>
+          <div class="flip-card-back">
+            <div>
+              <h3>Kisan Sahayak</h3>
+              <p>AI-powered Flutter app for plant disease detection using Gemini AI and an offline ML
+                model — with organic treatment recommendations, multilingual text-to-speech in 10 Indian
+                languages, and real-time weather updates for farmers.</p>
+              <div class="tech-tags">
+                <span>Flutter</span><span>Dart</span><span>Gemini API</span><span>Weather API</span><span>Android Studio</span>
+              </div>
+            </div>
+            <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" class="repo-link">
+              <i class="fa-brands fa-github"></i> View GitHub Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
 
-    <div class="project">
-      <h3>Nexora Quiz Platform</h3>
-      <p>
-        Full-stack Django quiz application with AWS-hosted MySQL backend,
-        automated notifications, and dynamic quiz flow.
-      </p>
-      <p><strong>Tech:</strong> Django, Python, MySQL, AWS, Gmail SMTP</p>
-      <a href="https://github.com/Chaithanyamandula/nexora-quiz-withdb" target="_blank">GitHub Link</a>
+<!-- EXPERIENCE / INTERNSHIPS -->
+<section id="experience" class="alt">
+  <div class="container">
+    <h2 class="section-title reveal"><span class="eyebrow-num mono">04</span> Experience &amp; Internships</h2>
+
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-head">
+          <i class="fa-solid fa-robot"></i>
+          <div>
+            <h3>AI Trainer</h3>
+            <span class="mono exp-org">SoftAge AI</span>
+          </div>
+        </div>
+        <ul>
+          <li>Recorded 20+ software workflows on Windows to support AI training for LAMs and Action Agents</li>
+          <li>Contributed to 10+ AI agents by curating tool interactions for financial tasks</li>
+          <li>Captured real-use digital processes for risk analysis and optimization</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-head">
+          <i class="fa-brands fa-aws"></i>
+          <div>
+            <h3>AWS Cloud Computing</h3>
+            <span class="mono exp-org">Self-directed / APSSDC</span>
+          </div>
+        </div>
+        <ul>
+          <li>Deployed and hosted a production-ready real-time web app through AWS EC2</li>
+          <li>Configured Application Load Balancer and Amazon Route 53 for high availability &amp; domain management</li>
+          <li>Completed hands-on training in EC2, S3, cloud deployment and security</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-head">
+          <i class="fa-solid fa-brain"></i>
+          <div>
+            <h3>Machine Learning with Python</h3>
+            <span class="mono exp-org">Internship — APSSDC</span>
+          </div>
+        </div>
+        <ul>
+          <li>Developed an AI-based crop advisory platform using FastAPI, PyTorch and OpenCV</li>
+          <li>Built plant disease detection, soil analysis and personalized farming recommendations</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
-<section id="education" class="light">
+<section id="education">
   <div class="container">
-    <h2 class="section-title">Education</h2>
+    <h2 class="section-title reveal"><span class="eyebrow-num mono">05</span> Education</h2>
 
     <ul class="timeline">
-      <li>
-        <strong>B.Tech – Information Technology</strong><br>
-        Andhra Loyola Institute of Engineering and Technology, Vijayawada<br>
+      <li class="reveal">
+        <strong>B.Tech — Information Technology</strong>
+        <span class="timeline-date mono">2023 – 2027</span>
+        <p>Andhra Loyola Institute of Engineering and Technology (ALIET), Vijayawada</p>
         <em>Currently Pursuing</em>
       </li>
-      <li>
-        <strong>Class XII</strong><br>
-        Vijaya Jyothi Junior College – 82.1% (2023)
+      <li class="reveal">
+        <strong>Class XII (BIEAP)</strong>
+        <span class="timeline-date mono">2023</span>
+        <p>Vijaya Jyothi Junior College — 82.1%</p>
       </li>
-      <li>
-        <strong>Class X</strong><br>
-        Municipal High School – CGPA 9.0 (2021)
+      <li class="reveal">
+        <strong>Class X (SSC)</strong>
+        <span class="timeline-date mono">2021</span>
+        <p>Municipal High School — CGPA 9.0 / 10</p>
       </li>
     </ul>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="alt">
+  <div class="container">
+    <h2 class="section-title reveal"><span class="eyebrow-num mono">✓</span> Achievements</h2>
+    <div class="achieve-grid">
+      <div class="achieve-card reveal">
+        <i class="fa-solid fa-server"></i>
+        <p>Deployed &amp; hosted a real-time web application (<strong>nexoraquiz.xyz</strong>) on AWS infrastructure</p>
+      </div>
+      <div class="achieve-card reveal">
+        <i class="fa-solid fa-language"></i>
+        <p>Built an AI-powered agriculture app supporting <strong>10 regional languages</strong></p>
+      </div>
+      <div class="achieve-card reveal">
+        <i class="fa-solid fa-users-gear"></i>
+        <p>Contributed to <strong>10+ AI agent</strong> training workflows at SoftAge AI</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <h2 class="section-title">Contact <span>Me</span></h2>
+    <h2 class="section-title reveal"><span class="eyebrow-num mono">06</span> Contact Me</h2>
 
-    <p class="center-text">
+    <p class="center-text reveal">
       Looking for internships and learning opportunities. Feel free to connect!
     </p>
 
-    <div class="socials">
-      <a href="mailto:chaithanyakumar002@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/Chaithanyamandula" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/chaithanya-kumar-163b432b1/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <div class="socials reveal">
+      <a href="mailto:chaithanyakumar002@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/chaithanya-kumar-163b432b1/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="tel:+919515744913" aria-label="Phone"><i class="fas fa-phone"></i></a>
     </div>
   </div>
 </section>
@@ -164,5 +350,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-

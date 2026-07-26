@@ -2,10 +2,10 @@
    TOKENS — LIGHT (default) & DARK
 ===================================================== */
 :root {
-  --bg: #f7f8fb;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-alt: #eef0f5;
-  --border: #e1e4ec;
+  --surface-alt: #e8eaf0;
+  --border: #dfe2ea;
 
   --text: #171a23;
   --text-dim: #5b6472;
@@ -20,6 +20,16 @@
   --amber: #a8660a;
   --amber-soft: rgba(168, 102, 10, 0.12);
 
+  --heat-0: #e6e8ef;
+  --heat-1: #c7d2fe;
+  --heat-2: #a5b4fc;
+  --heat-3: #6366f1;
+  --heat-4: #3e5df6;
+
+  --selection-bg: #ffffff;
+  --selection-text: #12151c;
+  --selection-glow: rgba(255, 255, 255, 0.95);
+
   --radius: 16px;
   --radius-sm: 10px;
   --ease: cubic-bezier(.25, .8, .35, 1);
@@ -31,10 +41,10 @@
 }
 
 html[data-theme="dark"] {
-  --bg: #12151c;
-  --surface: #191d26;
-  --surface-alt: #1f2430;
-  --border: #2b303c;
+  --bg: #0a0b0f;
+  --surface: #16181e;
+  --surface-alt: #24262e;
+  --border: #33363f;
 
   --text: #e9ebf1;
   --text-dim: #8d97a8;
@@ -49,6 +59,16 @@ html[data-theme="dark"] {
   --amber: #eab454;
   --amber-soft: rgba(234, 180, 84, 0.12);
 
+  --heat-0: #232936;
+  --heat-1: #2b3560;
+  --heat-2: #3d4c8c;
+  --heat-3: #5566d6;
+  --heat-4: #7488ff;
+
+  --selection-bg: #ffffff;
+  --selection-text: #0a0b0f;
+  --selection-glow: rgba(255, 255, 255, 0.7);
+
   color-scheme: dark;
 }
 
@@ -57,7 +77,7 @@ html[data-theme="dark"] {
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: var(--bg); }
 
 body {
   font-family: var(--font-body);
@@ -69,10 +89,19 @@ body {
 
 .mono { font-family: var(--font-mono); }
 .container { width: 90%; max-width: 1120px; margin: auto; }
-section { padding: 100px 0; }
-section.alt { background: var(--surface-alt); transition: background .35s var(--ease); }
+section { padding: 100px 0; background: var(--bg); transition: background .35s var(--ease); }
+section.alt { background: var(--surface-alt); }
 
-::selection { background: var(--accent); color: var(--accent-ink); }
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+  text-shadow: 0 0 8px var(--selection-glow), 0 0 18px var(--selection-glow);
+}
+::-moz-selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+  text-shadow: 0 0 8px var(--selection-glow), 0 0 18px var(--selection-glow);
+}
 
 /* =====================================================
    SCROLL PROGRESS BAR
@@ -360,6 +389,181 @@ html[data-theme="dark"] .profile-img { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3
   transition: background .2s ease, transform .2s ease, color .2s ease;
 }
 .repo-link:hover { background: var(--accent-soft); color: var(--accent); transform: translateY(-2px); }
+
+/* =====================================================
+   GITHUB STATS — LIVE
+===================================================== */
+#gh-updated { color: var(--accent); }
+
+.gh-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 34px;
+}
+
+.gh-stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+  margin-bottom: 34px;
+}
+.gh-stat {
+  text-align: center;
+  padding: 18px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+}
+.gh-stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.gh-stat-label { color: var(--text-dim); font-size: 0.74rem; letter-spacing: .03em; text-transform: uppercase; }
+
+.gh-panels {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.gh-panel-title {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* --- heatmap --- */
+.gh-heatmap-wrap { position: relative; }
+
+.gh-heatmap-months {
+  position: relative;
+  height: 16px;
+  margin-bottom: 4px;
+}
+.gh-heatmap-months span {
+  position: absolute;
+  top: 0;
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .15s ease;
+}
+.gh-heatmap-months span:hover,
+.gh-heatmap-months span:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.gh-heatmap {
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+.gh-week { display: flex; flex-direction: column; gap: 3px; flex-shrink: 0; }
+
+.gh-cell {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  background: var(--heat-0);
+}
+.gh-cell[data-level="1"] { background: var(--heat-1); }
+.gh-cell[data-level="2"] { background: var(--heat-2); }
+.gh-cell[data-level="3"] { background: var(--heat-3); }
+.gh-cell[data-level="4"] { background: var(--heat-4); }
+.gh-cell[data-empty="true"] { background: transparent; }
+.gh-cell[data-date] { cursor: pointer; transition: outline-color .15s ease; }
+.gh-cell[data-date]:hover, .gh-cell[data-date]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.gh-tooltip {
+  position: fixed;
+  z-index: 50;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 7px 11px;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, calc(-100% - 10px));
+  transition: opacity .12s ease;
+  white-space: nowrap;
+}
+.gh-tooltip.visible { opacity: 1; }
+.gh-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--text);
+}
+
+.gh-heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--text-dim);
+  font-size: 0.7rem;
+}
+.gh-heatmap-legend .gh-cell { width: 10px; height: 10px; }
+
+/* --- languages --- */
+.gh-langs { display: flex; flex-direction: column; gap: 12px; }
+.gh-lang-row { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; }
+.gh-lang-name { width: 92px; flex-shrink: 0; color: var(--text); font-weight: 600; }
+.gh-lang-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  overflow: hidden;
+}
+.gh-lang-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+.gh-lang-pct { width: 42px; text-align: right; color: var(--text-dim); font-size: 0.78rem; }
+
+/* --- skeleton loading state --- */
+.gh-skeleton {
+  height: 90px;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, var(--surface-alt) 25%, var(--border) 37%, var(--surface-alt) 63%);
+  background-size: 400% 100%;
+  animation: gh-shimmer 1.6s ease-in-out infinite;
+}
+@keyframes gh-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gh-skeleton { animation: none; background: var(--surface-alt); }
+}
+
+.gh-fallback { color: var(--text-dim); text-align: center; margin-top: 20px; }
+.gh-fallback a { color: var(--accent); }
+
+.gh-profile-link { display: flex; width: fit-content; margin: 26px auto 0; }
+
+@media (max-width: 700px) {
+  .gh-panels { grid-template-columns: 1fr; }
+  .gh-block { padding: 24px; }
+}
 
 /* =====================================================
    EXPERIENCE

@@ -18,9 +18,8 @@
 
 <header id="site-header">
   <nav class="container nav">
-    <a href="#home" class="logo">Chaithanya<span class="logo-dot"> Kumar</span></a>
+    <a href="#home" class="logo">Chaithanya<span class="logo-dot">.</span></a>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -325,10 +324,76 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
+<!-- GITHUB STATS — LIVE -->
+<section id="github-stats">
   <div class="container">
-    <h2 class="section-title reveal"><span class="eyebrow-num mono">06</span> Contact Me</h2>
+    <h2 class="section-title reveal"><span class="eyebrow-num mono">06</span> Live GitHub Activity</h2>
+    <p class="section-sub reveal mono">fetched live from the GitHub API · <span id="gh-updated">loading…</span></p>
+
+    <div class="gh-block reveal">
+
+      <div class="gh-stat-row" id="gh-stat-row">
+        <div class="gh-stat">
+          <span class="gh-stat-num" id="gh-repos">–</span>
+          <span class="gh-stat-label mono">Repositories</span>
+        </div>
+        <div class="gh-stat">
+          <span class="gh-stat-num" id="gh-followers">–</span>
+          <span class="gh-stat-label mono">Followers</span>
+        </div>
+        <div class="gh-stat">
+          <span class="gh-stat-num" id="gh-stars">–</span>
+          <span class="gh-stat-label mono">Total Stars</span>
+        </div>
+        <div class="gh-stat">
+          <span class="gh-stat-num" id="gh-contribs">–</span>
+          <span class="gh-stat-label mono">Contributions / yr</span>
+        </div>
+      </div>
+
+      <div class="gh-panels">
+        <div class="gh-panel">
+          <h3 class="gh-panel-title mono">contribution activity</h3>
+          <div class="gh-heatmap-wrap">
+            <div class="gh-heatmap-months mono" id="gh-heatmap-months"></div>
+            <div class="gh-heatmap" id="gh-heatmap">
+              <div class="gh-skeleton"></div>
+            </div>
+          </div>
+          <div class="gh-heatmap-legend mono">
+            <span>Less</span>
+            <span class="gh-cell" data-level="0"></span>
+            <span class="gh-cell" data-level="1"></span>
+            <span class="gh-cell" data-level="2"></span>
+            <span class="gh-cell" data-level="3"></span>
+            <span class="gh-cell" data-level="4"></span>
+            <span>More</span>
+          </div>
+        </div>
+
+        <div class="gh-panel">
+          <h3 class="gh-panel-title mono">top languages</h3>
+          <div class="gh-langs" id="gh-langs">
+            <div class="gh-skeleton"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="gh-fallback mono" id="gh-fallback" hidden>
+        Couldn't reach the GitHub API right now — <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener">view the live profile on GitHub instead</a>.
+      </p>
+
+      <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" class="repo-link gh-profile-link">
+        <i class="fa-brands fa-github"></i> View Full GitHub Profile
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="container">
+    <h2 class="section-title reveal"><span class="eyebrow-num mono">07</span> Contact Me</h2>
 
     <p class="center-text reveal">
       Looking for internships and learning opportunities. Feel free to connect!
@@ -346,6 +411,8 @@
 <footer>
   <p>© 2025 Chaithanya Kumar Mandula</p>
 </footer>
+
+<div class="gh-tooltip mono" id="gh-tooltip" role="status" aria-hidden="true"></div>
 
 <script src="script.js"></script>
 </body>

@@ -1,4 +1,4 @@
-// ===== Theme toggle (light/dark, persisted) =====
+// ===== 1. Theme toggle (light/dark, persisted in localStorage, system fallback) =====
 const root = document.documentElement;
 const themeToggle = document.getElementById("theme-toggle");
 
@@ -12,45 +12,72 @@ const savedTheme = localStorage.getItem("theme");
 const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 applyTheme(savedTheme || (systemPrefersDark ? "dark" : "light"));
 
-themeToggle.addEventListener("click", () => {
-  const current = root.getAttribute("data-theme");
-  applyTheme(current === "dark" ? "light" : "dark");
-});
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme");
+    applyTheme(current === "dark" ? "light" : "dark");
+  });
+}
 
-// ===== Mobile nav toggle =====
+// ===== 2. Mobile Nav Toggle =====
 const burger = document.querySelector(".burger");
 const nav = document.querySelector(".nav-links");
 
-burger.addEventListener("click", () => {
-  const isActive = nav.classList.toggle("active");
-  burger.classList.toggle("active", isActive);
-  burger.setAttribute("aria-expanded", String(isActive));
-});
-
-nav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("active");
-    burger.classList.remove("active");
-    burger.setAttribute("aria-expanded", "false");
+if (burger && nav) {
+  burger.addEventListener("click", () => {
+    const isActive = nav.classList.toggle("active");
+    burger.classList.toggle("active", isActive);
+    burger.setAttribute("aria-expanded", String(isActive));
   });
-});
 
-// ===== Header background on scroll + scroll progress bar =====
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("active");
+      burger.classList.remove("active");
+      burger.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+// ===== 3. Header Scroll Blur, Scroll Progress Bar & Nav Highlight =====
 const header = document.getElementById("site-header");
 const progressBar = document.getElementById("progress-bar");
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
 
 function onScroll() {
-  header.classList.toggle("scrolled", window.scrollY > 20);
-
   const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  progressBar.style.width = percent + "%";
+
+  if (header) {
+    header.classList.toggle("scrolled", scrollTop > 20);
+  }
+
+  if (progressBar) {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = percent + "%";
+  }
+
+  // Active section link highlighting
+  let currentSectionId = "";
+  sections.forEach((sec) => {
+    const top = sec.offsetTop - 120;
+    const height = sec.offsetHeight;
+    if (scrollTop >= top && scrollTop < top + height) {
+      currentSectionId = sec.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href").substring(1);
+    link.classList.toggle("active", href === currentSectionId);
+  });
 }
+
 window.addEventListener("scroll", onScroll);
 onScroll();
 
-// ===== Scroll-reveal animation (single restrained pattern) =====
+// ===== 4. Scroll-Reveal Animation =====
 const revealItems = document.querySelectorAll(".reveal");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -66,15 +93,15 @@ if (prefersReducedMotion) {
         }
       });
     },
-    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
   );
   revealItems.forEach((el) => revealObserver.observe(el));
 }
 
-// ===== Live GitHub stats =====
+// ===== 5. Live GitHub Activity =====
 const GH_USERNAME = "Chaithanyamandula";
-const GH_CACHE_KEY = "gh-stats-cache-v1";
-const GH_CACHE_TTL = 15 * 60 * 1000; // 15 minutes
+const GH_CACHE_KEY = "gh-stats-cache-v5";
+const GH_CACHE_TTL = 15 * 60 * 1000; // 15 minutes session caching
 
 async function ghFetchJSON(url) {
   const res = await fetch(url);
@@ -100,7 +127,7 @@ function ghCountUp(el, target) {
 }
 
 const GH_MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const GH_CELL_UNIT = 14; // cell width (11px) + gap (3px), used to position month labels
+const GH_CELL_UNIT = 14; // 11px cell width + 3px gap
 
 function ghFormatTooltip(dateStr, count) {
   const date = new Date(dateStr + "T00:00:00");
@@ -116,7 +143,6 @@ function ghRenderHeatmap(days) {
   container.innerHTML = "";
   if (monthsRow) monthsRow.innerHTML = "";
 
-  // Pad the start so each column represents a Sun–Sat week, like GitHub's grid
   const firstDate = new Date(days[0].date + "T00:00:00");
   const padCount = firstDate.getDay();
   const padded = Array(padCount).fill(null).concat(days);
@@ -263,7 +289,7 @@ function ghRenderLanguages(repos) {
 
   const sorted = Object.entries(tally).sort((a, b) => b[1] - a[1]).slice(0, 5);
   const total = sorted.reduce((sum, [, count]) => sum + count, 0) || 1;
-  const colors = ["var(--accent)", "var(--teal)", "var(--amber)", "#f472b6", "#22c55e"];
+  const colors = ["var(--accent)", "var(--accent-teal)", "var(--accent-amber)", "#f472b6", "#22c55e"];
 
   if (sorted.length === 0) {
     container.innerHTML = `<p class="gh-stat-label">No public language data available</p>`;
@@ -285,7 +311,7 @@ function ghRenderLanguages(repos) {
 
 async function loadGithubStats() {
   const statRow = document.getElementById("gh-stat-row");
-  if (!statRow) return; // section not on this page
+  if (!statRow) return;
 
   const fallbackEl = document.getElementById("gh-fallback");
   const panelsEl = document.querySelector(".gh-panels");
@@ -341,7 +367,147 @@ async function loadGithubStats() {
 
 loadGithubStats();
 
-// ===== Flip project cards (click + keyboard) =====
+// ===== 6. Certifications Slider & Full Screen Lightbox Modal =====
+function initCertSlider() {
+  const stage = document.getElementById("cert-stage");
+  const track = document.getElementById("cert-track");
+  const dotsWrap = document.getElementById("cert-dots");
+  const prevBtn = document.getElementById("cert-prev");
+  const nextBtn = document.getElementById("cert-next");
+  const counterEl = document.getElementById("cert-counter");
+  if (!stage || !track || !dotsWrap || !prevBtn || !nextBtn) return;
+
+  const slides = Array.from(track.querySelectorAll(".cert-slide"));
+  if (!slides.length) return;
+
+  let index = 0;
+  let autoTimer = null;
+
+  dotsWrap.innerHTML = "";
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "cert-dot" + (i === 0 ? " active" : "");
+    dot.setAttribute("aria-label", `Go to certificate slide ${i + 1}`);
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function setStageHeight() {
+    const activeSlide = slides[index];
+    if (!activeSlide) return;
+    const img = activeSlide.querySelector("img");
+    const caption = activeSlide.querySelector(".cert-caption");
+    const apply = () => {
+      const ratio = (img.naturalWidth && img.naturalHeight) ? img.naturalWidth / img.naturalHeight : 1.4;
+      const width = stage.clientWidth;
+      const wrapPadding = 48;
+      const availableWidth = Math.max(100, width - wrapPadding);
+      const captionHeight = caption ? caption.offsetHeight : 100;
+      let imgHeight = availableWidth / ratio;
+      imgHeight = Math.max(180, Math.min(480, imgHeight));
+      stage.style.height = `${imgHeight + wrapPadding + captionHeight}px`;
+    };
+    if (img.complete && img.naturalWidth) apply();
+    else img.addEventListener("load", apply, { once: true });
+  }
+
+  function goTo(newIndex) {
+    index = (newIndex + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    slides.forEach((s, i) => s.classList.toggle("is-active", i === index));
+    dots.forEach((d, i) => d.classList.toggle("active", i === index));
+    if (counterEl) counterEl.textContent = `${index + 1} / ${slides.length}`;
+    setStageHeight();
+    restartAuto();
+  }
+
+  function restartAuto() {
+    if (autoTimer) clearInterval(autoTimer);
+    if (!prefersReducedMotion && slides.length > 1) {
+      autoTimer = setInterval(() => goTo(index + 1), 4500);
+    }
+  }
+
+  prevBtn.addEventListener("click", () => goTo(index - 1));
+  nextBtn.addEventListener("click", () => goTo(index + 1));
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setStageHeight, 150);
+  });
+
+  let touchStartX = 0;
+  track.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener("touchend", (e) => {
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? index - 1 : index + 1);
+  });
+
+  stage.addEventListener("mouseenter", () => { if (autoTimer) clearInterval(autoTimer); });
+  stage.addEventListener("mouseleave", restartAuto);
+  stage.addEventListener("focusin", () => { if (autoTimer) clearInterval(autoTimer); });
+  stage.addEventListener("focusout", restartAuto);
+
+  setStageHeight();
+  restartAuto();
+
+  // Full Screen Lightbox Modal Handler
+  const lightbox = document.getElementById("cert-lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxTitle = document.getElementById("lightbox-title");
+  const lightboxDesc = document.getElementById("lightbox-desc");
+  const lightboxDriveBtn = document.getElementById("lightbox-drive-btn");
+  const lightboxCloseBtn = document.getElementById("lightbox-close-btn");
+  const lightboxBackdrop = document.getElementById("lightbox-backdrop");
+
+  function openLightbox(slide) {
+    const img = slide.querySelector("img");
+    const h3 = slide.querySelector("h3");
+    const p = slide.querySelector(".cert-caption p");
+    const driveUrl = slide.dataset.driveUrl || slide.querySelector(".cert-link-btn")?.getAttribute("href") || "#";
+
+    if (!lightbox || !lightboxImg) return;
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt || "Certificate preview";
+    if (lightboxTitle) lightboxTitle.textContent = h3 ? h3.textContent.trim() : "Certificate";
+    if (lightboxDesc) lightboxDesc.textContent = p ? p.textContent.trim() : "";
+    if (lightboxDriveBtn) lightboxDriveBtn.href = driveUrl;
+
+    lightbox.hidden = false;
+    document.body.classList.add("modal-open");
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    document.body.classList.remove("modal-open");
+  }
+
+  slides.forEach((slide) => {
+    slide.addEventListener("click", (e) => {
+      if (e.target.closest(".cert-link-btn")) return; // Let direct drive button click open drive
+      e.preventDefault();
+      openLightbox(slide);
+    });
+  });
+
+  if (lightboxCloseBtn) lightboxCloseBtn.addEventListener("click", closeLightbox);
+  if (lightboxBackdrop) lightboxBackdrop.addEventListener("click", closeLightbox);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox && !lightbox.hidden) {
+      closeLightbox();
+    }
+  });
+}
+
+initCertSlider();
+
+// ===== 7. Project Flip Cards (Click + Keyboard) =====
 const flipCards = document.querySelectorAll(".flip-card");
 
 flipCards.forEach((card) => {
@@ -350,8 +516,13 @@ flipCards.forEach((card) => {
     card.setAttribute("aria-pressed", String(flipped));
   };
 
-  card.addEventListener("click", toggleFlip);
+  card.addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
+    toggleFlip();
+  });
+
   card.addEventListener("keydown", (e) => {
+    if (e.target.closest("a")) return;
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       toggleFlip();

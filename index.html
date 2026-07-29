@@ -2,414 +2,648 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Chaithanya Kumar Mandula — Software Engineer</title>
+<title>Chaithanya Kumar Mandula — Software Engineer & B.Tech IT Student</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Portfolio of Chaithanya Kumar Mandula, IT student and software engineer specializing in Python, AWS cloud and AI/ML projects." />
+<meta name="description" content="Portfolio of Chaithanya Kumar Mandula, IT student and software engineer specializing in Python, AWS cloud, and AI/ML applications." />
 
+<!-- Fonts & Icons CDN -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="progress-bar" id="progress-bar"></div>
+<!-- Ambient Color Grading Mesh in Background -->
+<div class="ambient-mesh" aria-hidden="true">
+  <div class="glow-sphere glow-1"></div>
+  <div class="glow-sphere glow-2"></div>
+  <div class="glow-sphere glow-3"></div>
+</div>
 
+<!-- Thin Scroll-Progress Bar with Color Grading Glow -->
+<div class="progress-bar" id="progress-bar" role="progressbar" aria-label="Page scroll progress"></div>
+
+<!-- Fixed Navigation Header (Simplified Core Nav Links) -->
 <header id="site-header">
   <nav class="container nav">
     <a href="#home" class="logo">Chaithanya<span class="logo-dot">.</span></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <button class="theme-toggle" id="theme-toggle" aria-label="Switch between light and dark theme">
-        <i class="fa-solid fa-sun icon-sun"></i>
-        <i class="fa-solid fa-moon icon-moon"></i>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+        <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+        <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
       </button>
-      <button class="burger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button class="burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
         <div></div><div></div><div></div>
       </button>
     </div>
   </nav>
 </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="container hero-content">
-    <div class="hero-text reveal">
-      <p class="eyebrow mono">Software Engineer · IT Student</p>
-      <h1>Hi, I'm <span class="accent">Chaithanya Kumar Mandula</span></h1>
-      <h2 class="hero-sub">B.Tech Information Technology, ALIET Vijayawada</h2>
-      <p class="hero-para">
-        Hard-working and consistent IT student building full-stack, cloud and AI-powered
-        applications — from computer-vision systems to production deployments on AWS.
-        Looking for an internship to contribute to real-world projects.
-      </p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-secondary">Contact Me</a>
-      </div>
-      <div class="hero-tags mono">
-        <span>Python</span><span>AWS</span><span>Flask</span><span>AI / ML</span>
-      </div>
-    </div>
-
-    <div class="hero-image reveal">
-      <img src="profile.jpg" alt="Chaithanya Kumar Mandula" class="profile-img" />
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <h2 class="section-title reveal">About</h2>
-
-    <p class="center-text reveal">
-      I'm a 2nd-year <strong>B.Tech Information Technology</strong> student at Andhra Loyola Institute of
-      Engineering and Technology (ALIET), Vijayawada, with a background in web development &amp; hosting,
-      Python, and cloud-based application deployment. I enjoy backend development, database design, and
-      turning ideas into practical, deployed applications.
-    </p>
-
-    <div class="info-grid reveal">
-      <div class="info-card">
-        <i class="fa-solid fa-envelope"></i>
-        <div><span class="label mono">Email</span><a href="mailto:chaithanyakumar002@gmail.com">chaithanyakumar002@gmail.com</a></div>
-      </div>
-      <div class="info-card">
-        <i class="fa-solid fa-phone"></i>
-        <div><span class="label mono">Phone</span><a href="tel:+919515744913">+91 95157 44913</a></div>
-      </div>
-      <div class="info-card">
-        <i class="fa-brands fa-github"></i>
-        <div><span class="label mono">GitHub</span><a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener">github.com/Chaithanyamandula</a></div>
-      </div>
-      <div class="info-card">
-        <i class="fa-brands fa-linkedin"></i>
-        <div><span class="label mono">LinkedIn</span><a href="https://www.linkedin.com/in/chaithanya-kumar-163b432b1/" target="_blank" rel="noopener">Chaithanya Kumar</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="alt">
-  <div class="container">
-    <h2 class="section-title reveal">Technical Skills</h2>
-
-    <div class="skills-groups">
-      <div class="skill-group reveal">
-        <h3 class="mono group-label">Tech Stack</h3>
-        <div class="skills">
-          <span class="pill">Python</span>
-          <span class="pill">Java</span>
-          <span class="pill">MySQL</span>
-          <span class="pill">C</span>
-          <span class="pill">Django</span>
+<main>
+  <!-- 1. HERO (SOLE PROFILE PHOTO CONTAINER) -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <div class="hero-text reveal">
+        <div class="eyebrow-badge mono">
+          <span class="status-dot"></span> Available for Internships
+        </div>
+        <h1>Hi, I'm <span class="gradient-text">Chaithanya Kumar Mandula</span></h1>
+        <h2 class="hero-sub">Software Engineer / B.Tech Information Technology Student</h2>
+        <p class="hero-para">
+          IT student with a background in web development &amp; hosting, Python, and cloud-based application deployment.
+          Enjoys backend development, database design, and turning ideas into practical, deployed applications.
+          Looking for an internship to contribute to real-world, full-stack projects.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code"></i> View Projects</a>
+          <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+        </div>
+        <div class="hero-tags mono">
+          <span>Python</span>
+          <span>Django</span>
+          <span>AWS</span>
+          <span>Flutter</span>
         </div>
       </div>
 
-      <div class="skill-group reveal">
-        <h3 class="mono group-label">Cloud</h3>
-        <div class="skills">
-          <span class="pill pill-alt">AWS EC2</span>
-          <span class="pill pill-alt">S3</span>
-          <span class="pill pill-alt">RDS</span>
-          <span class="pill pill-alt">Route 53</span>
-          <span class="pill pill-alt">Load Balancer</span>
-        </div>
-      </div>
-
-      <div class="skill-group reveal">
-        <h3 class="mono group-label">Core Concepts</h3>
-        <div class="skills">
-          <span class="pill pill-mute">APIs</span>
-          <span class="pill pill-mute">OOP</span>
-          <span class="pill pill-mute">Data Structures</span>
-          <span class="pill pill-mute">Descriptive Statistics</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <h2 class="section-title reveal">My Projects</h2>
-    <p class="section-sub reveal mono">Click a card to flip and see details</p>
-
-    <div class="projects-grid">
-
-      <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Criminal Face Detection System, click to flip">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <i class="fa-solid fa-fingerprint project-icon"></i>
-            <h3>Criminal Face Detection</h3>
-            <p class="flip-note mono"><i class="fa-solid fa-arrows-rotate"></i> click to flip for details</p>
+      <!-- Sole Profile Photo Container -->
+      <div class="hero-image reveal">
+        <div class="profile-img-frame">
+          <img src="profile.jpg" alt="Chaithanya Kumar Mandula profile picture" class="profile-img" />
+          <div class="profile-badge mono">
+            <i class="fa-solid fa-shield-halved"></i> Cloud &amp; AI Engineer
           </div>
-          <div class="flip-card-back">
-            <div>
-              <h3>Criminal Face Detection</h3>
-              <p>Facial recognition system for law enforcement to detect, identify and manage criminal
-                records in real time — capturing facial features, matching them against a centralized
-                database for fast identification during investigations.</p>
-              <div class="tech-tags">
-                <span>Python</span><span>OpenCV</span><span>Face Recognition</span><span>NumPy</span><span>Flask</span><span>MySQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ABOUT -->
+  <section id="about" class="alt">
+    <div class="container">
+      <h2 class="section-title reveal"><i class="fa-solid fa-user title-icon"></i> About Me</h2>
+
+      <div class="about-grid">
+        <!-- Technical Identity Card -->
+        <div class="about-card reveal">
+          <div class="tech-card-header">
+            <div class="tech-icon-circle"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>Chaithanya K. Mandula</h3>
+            <p class="mono text-muted">B.Tech IT · ALIET Vijayawada</p>
+          </div>
+
+          <div class="tech-badge-list mono">
+            <span class="tech-chip"><i class="fa-solid fa-server"></i> Backend Engineering</span>
+            <span class="tech-chip"><i class="fa-solid fa-cloud"></i> AWS Infrastructure</span>
+            <span class="tech-chip"><i class="fa-solid fa-brain"></i> AI / ML Applications</span>
+            <span class="tech-chip"><i class="fa-solid fa-database"></i> Database Architecture</span>
+          </div>
+
+          <div class="quick-facts mono">
+            <div class="fact-item"><i class="fa-solid fa-location-dot"></i> Vijayawada, AP, India</div>
+            <div class="fact-item"><div class="status-pulse"></div> Status: B.Tech Student (2023–2027)</div>
+            <div class="fact-item"><i class="fa-solid fa-graduation-cap"></i> ALIET — Currently Pursuing</div>
+          </div>
+        </div>
+
+        <div class="about-text-content reveal">
+          <p class="about-lead">
+            IT student with a background in web development &amp; hosting, Python, and cloud-based application deployment.
+            Enjoys backend development, database design, and turning ideas into practical, deployed applications.
+            Looking for an internship to contribute to real-world, full-stack projects.
+          </p>
+          <div class="info-grid">
+            <div class="info-card">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <span class="label mono">Email</span>
+                <a href="mailto:chaithanyakumar002@gmail.com">chaithanyakumar002@gmail.com</a>
               </div>
             </div>
-            <a href="https://github.com/Chaithanyamandula/Criminal-Face-Detection" target="_blank" rel="noopener" class="repo-link">
-              <i class="fa-brands fa-github"></i> View Repository
-            </a>
+            <div class="info-card">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <span class="label mono">Phone</span>
+                <a href="tel:+919515744913">+91 95157 44913</a>
+              </div>
+            </div>
+            <div class="info-card">
+              <i class="fa-brands fa-github"></i>
+              <div>
+                <span class="label mono">GitHub</span>
+                <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener">github.com/Chaithanyamandula</a>
+              </div>
+            </div>
+            <div class="info-card">
+              <i class="fa-brands fa-linkedin"></i>
+              <div>
+                <span class="label mono">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/chaithanya-kumar-163b432b1/" target="_blank" rel="noopener">Chaithanya Kumar</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Real-Time Cloud Predictor, click to flip">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <i class="fa-solid fa-cloud-bolt project-icon"></i>
-            <h3>Real-Time Cloud Predictor</h3>
-            <p class="flip-note mono"><i class="fa-solid fa-arrows-rotate"></i> click to flip for details</p>
+  <!-- 3. SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title reveal"><i class="fa-solid fa-code title-icon"></i> Technical Skills</h2>
+
+      <div class="skills-groups">
+        <div class="skill-group reveal">
+          <h3 class="mono group-label"><i class="fa-solid fa-terminal"></i> Tech Stack</h3>
+          <div class="skills">
+            <span class="pill pill-stack mono">Python</span>
+            <span class="pill pill-stack mono">Java</span>
+            <span class="pill pill-stack mono">MySQL</span>
+            <span class="pill pill-stack mono">C</span>
+            <span class="pill pill-stack mono">Django</span>
           </div>
-          <div class="flip-card-back">
-            <div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="mono group-label"><i class="fa-solid fa-cloud"></i> Cloud</h3>
+          <div class="skills">
+            <span class="pill pill-cloud mono">AWS EC2</span>
+            <span class="pill pill-cloud mono">S3</span>
+            <span class="pill pill-cloud mono">RDS</span>
+            <span class="pill pill-cloud mono">Route 53</span>
+            <span class="pill pill-cloud mono">Load Balancer</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="mono group-label"><i class="fa-solid fa-layer-group"></i> Core Concepts</h3>
+          <div class="skills">
+            <span class="pill pill-core mono">APIs</span>
+            <span class="pill pill-core mono">OOP</span>
+            <span class="pill pill-core mono">Data Structures</span>
+            <span class="pill pill-core mono">Descriptive Statistics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROJECTS -->
+  <section id="projects" class="alt">
+    <div class="container">
+      <h2 class="section-title reveal"><i class="fa-solid fa-laptop-code title-icon"></i> Featured Projects</h2>
+      <p class="section-sub reveal mono">Click or press Enter on a card to flip for details ↻</p>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Criminal Face Detection System, press enter to flip for details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="project-icon-box"><i class="fa-solid fa-fingerprint project-icon"></i></div>
+              <h3>Criminal Face Detection System</h3>
+              <p class="project-hook">Facial recognition system for law enforcement to detect, identify, and manage criminal records in real time.</p>
+              <p class="flip-note mono"><i class="fa-solid fa-arrows-rotate"></i> click to flip for details ↻</p>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <h3>Criminal Face Detection System</h3>
+                <p class="project-desc">Facial recognition system for law enforcement to detect, identify, and manage criminal records in real time.</p>
+                <div class="tech-tags mono">
+                  <span class="tag-stack">Python</span>
+                  <span class="tag-stack">OpenCV</span>
+                  <span class="tag-core">Face Recognition</span>
+                  <span class="tag-core">NumPy</span>
+                  <span class="tag-stack">Flask</span>
+                  <span class="tag-stack">MySQL</span>
+                </div>
+              </div>
+              <a href="https://github.com/Chaithanyamandula/Criminal-Face-Detection" target="_blank" rel="noopener" class="repo-link">
+                <i class="fa-brands fa-github"></i> View Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Real-Time Cloud Predictor, press enter to flip for details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="project-icon-box"><i class="fa-solid fa-cloud-bolt project-icon"></i></div>
               <h3>Real-Time Cloud Predictor</h3>
-              <p>AI-powered climate prediction system analyzing satellite imagery with CNNs to detect
-                cloud clusters, predict movement &amp; speed, and classify conditions as Safe or Risk —
-                auto-alerting authorities via email, phone and connected-device sirens.</p>
-              <div class="tech-tags">
-                <span>Python</span><span>Flask</span><span>CNN</span><span>Computer Vision</span><span>SMTP</span><span>APIs</span>
-              </div>
+              <p class="project-hook">AI-powered climate prediction system analyzing satellite imagery with CNNs to detect cloud clusters and alert authorities.</p>
+              <p class="flip-note mono"><i class="fa-solid fa-arrows-rotate"></i> click to flip for details ↻</p>
             </div>
-          
-            </a>
+            <div class="flip-card-back">
+              <div>
+                <h3>Real-Time Cloud Predictor</h3>
+                <p class="project-desc">AI-powered climate prediction system analyzing satellite imagery with CNNs to detect cloud clusters, predict movement/speed, classify Safe/Risk conditions, and auto-alert authorities.</p>
+                <div class="tech-tags mono">
+                  <span class="tag-stack">Python</span>
+                  <span class="tag-stack">Flask</span>
+                  <span class="tag-core">CNN</span>
+                  <span class="tag-core">Computer Vision</span>
+                  <span class="tag-cloud">SMTP</span>
+                  <span class="tag-cloud">APIs</span>
+                </div>
+              </div>
+              <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" class="repo-link">
+                <i class="fa-brands fa-github"></i> View GitHub Profile
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Kisan Sahayak Smart Agriculture App, click to flip">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <i class="fa-solid fa-seedling project-icon"></i>
-            <h3>Kisan Sahayak</h3>
-            <p class="flip-note mono"><i class="fa-solid fa-arrows-rotate"></i> click to flip for details</p>
-          </div>
-          <div class="flip-card-back">
-            <div>
+        <!-- Project 3 -->
+        <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Kisan Sahayak Smart Agriculture App, press enter to flip for details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="project-icon-box"><i class="fa-solid fa-seedling project-icon"></i></div>
               <h3>Kisan Sahayak</h3>
-              <p>AI-powered Flutter app for plant disease detection using Gemini AI and an offline ML
-                model — with organic treatment recommendations, multilingual text-to-speech in 10 Indian
-                languages, and real-time weather updates for farmers.</p>
-              <div class="tech-tags">
-                <span>Flutter</span><span>Dart</span><span>Gemini API</span><span>Weather API</span><span>Android Studio</span>
+              <p class="project-hook">AI-powered Flutter app for plant disease detection using Gemini AI + offline ML model with 10 Indian languages support.</p>
+              <p class="flip-note mono"><i class="fa-solid fa-arrows-rotate"></i> click to flip for details ↻</p>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <h3>Kisan Sahayak (Smart Agriculture App)</h3>
+                <p class="project-desc">AI-powered Flutter app for plant disease detection using Gemini AI + an offline ML model, organic treatment suggestions, multilingual TTS in 10 Indian languages, and real-time weather updates.</p>
+                <div class="tech-tags mono">
+                  <span class="tag-stack">Flutter</span>
+                  <span class="tag-stack">Dart</span>
+                  <span class="tag-cloud">Gemini API</span>
+                  <span class="tag-cloud">Weather API</span>
+                  <span class="tag-core">Android Studio</span>
+                </div>
+              </div>
+              <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" class="repo-link">
+                <i class="fa-brands fa-github"></i> View GitHub Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. EXPERIENCE & INTERNSHIPS -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title reveal"><i class="fa-solid fa-briefcase title-icon"></i> Experience &amp; Internships</h2>
+
+      <div class="exp-grid">
+        <div class="exp-card reveal">
+          <div class="exp-head">
+            <div class="exp-icon-box"><i class="fa-solid fa-robot exp-icon"></i></div>
+            <div>
+              <h3>AI Trainer</h3>
+              <span class="mono exp-org">SoftAge AI</span>
+            </div>
+          </div>
+          <ul class="exp-list">
+            <li>Recorded 20+ software workflows for AI and Large Action Model (LAM) training.</li>
+            <li>Contributed to 10+ AI agents by curating tool interactions for financial tasks.</li>
+            <li>Captured real-use digital processes for risk analysis and workflow optimization.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-head">
+            <div class="exp-icon-box"><i class="fa-brands fa-aws exp-icon"></i></div>
+            <div>
+              <h3>AWS Cloud Computing</h3>
+              <span class="mono exp-org">Self-directed / APSSDC</span>
+            </div>
+          </div>
+          <ul class="exp-list">
+            <li>Deployed a production web app on EC2 infrastructure.</li>
+            <li>Configured Load Balancer + Route 53 for high availability and domain management.</li>
+            <li>Completed hands-on training in EC2, S3, cloud deployment, and infrastructure security.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-head">
+            <div class="exp-icon-box"><i class="fa-solid fa-brain exp-icon"></i></div>
+            <div>
+              <h3>Machine Learning with Python</h3>
+              <span class="mono exp-org">Internship — APSSDC</span>
+            </div>
+          </div>
+          <ul class="exp-list">
+            <li>Built an AI crop advisory platform using FastAPI, PyTorch, and OpenCV.</li>
+            <li>Developed plant disease detection modules, soil analysis models, and personalized farming recommendations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. EDUCATION (SPLIT-LAYOUT FEATURED MILESTONE & CREDENTIALS) -->
+  <section id="education" class="alt">
+    <div class="container">
+      <h2 class="section-title reveal"><i class="fa-solid fa-graduation-cap title-icon"></i> Education Journey</h2>
+
+      <div class="edu-featured-grid">
+        <!-- Main Active Degree Card -->
+        <div class="edu-active-card reveal">
+          <div class="edu-card-badge mono"><span class="pulse-dot"></span> Active Pursuit · 2023–2027</div>
+          <div class="edu-card-icon"><i class="fa-solid fa-user-graduate"></i></div>
+          <h3>B.Tech — Information Technology</h3>
+          <p class="institution">Andhra Loyola Institute of Engineering and Technology (ALIET), Vijayawada</p>
+          
+          <div class="edu-details-box mono">
+            <div class="edu-detail-row">
+              <span class="label">Status:</span>
+              <span class="val accent">Currently Pursuing Degree</span>
+            </div>
+            <div class="edu-detail-row">
+              <span class="label">Specialization:</span>
+              <span class="val">Software Engineering &amp; Cloud Systems</span>
+            </div>
+          </div>
+
+          <div class="edu-chips mono">
+            <span>Data Structures</span>
+            <span>OOP</span>
+            <span>Python / Django</span>
+            <span>AWS Cloud</span>
+          </div>
+        </div>
+
+        <!-- Completed Milestone Credentials -->
+        <div class="edu-completed-column">
+          <div class="edu-milestone-box reveal">
+            <div class="milestone-icon-wrap"><i class="fa-solid fa-award"></i></div>
+            <div class="milestone-info">
+              <div class="milestone-meta mono">
+                <span>2023</span>
+                <span class="badge-success"><i class="fa-solid fa-check"></i> Completed</span>
+              </div>
+              <h3>Class XII (BIEAP)</h3>
+              <p class="institution">Vijaya Jyothi Junior College</p>
+              <div class="score-pill mono">Result: 82.1%</div>
+            </div>
+          </div>
+
+          <div class="edu-milestone-box reveal">
+            <div class="milestone-icon-wrap"><i class="fa-solid fa-medal"></i></div>
+            <div class="milestone-info">
+              <div class="milestone-meta mono">
+                <span>2021</span>
+                <span class="badge-success"><i class="fa-solid fa-check"></i> Completed</span>
+              </div>
+              <h3>Class X (SSC)</h3>
+              <p class="institution">Municipal High School</p>
+              <div class="score-pill mono">Result: CGPA 9.0 / 10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CERTIFICATIONS (FULL-SCREEN LIGHTBOX ON CLICK) -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-header-flex">
+        <h2 class="section-title reveal"><i class="fa-solid fa-certificate title-icon"></i> Certifications</h2>
+        <span class="cert-counter-badge mono" id="cert-counter">1 / 4</span>
+      </div>
+      <p class="section-sub reveal mono">Click any certificate to expand full screen preview</p>
+
+      <div class="cert-slider-wrapper reveal">
+        <div class="cert-slider">
+          <button class="cert-nav cert-prev" id="cert-prev" aria-label="Previous certificate">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="cert-stage" id="cert-stage">
+            <div class="cert-track" id="cert-track">
+
+              <!-- Certificate 1 -->
+              <div class="cert-slide" data-drive-url="https://drive.google.com/file/d/1OOs2ZroXA0VUwe4CM3Xjc8OG1M9Cpwpj/view?usp=drive_link" aria-label="AWS Cloud Practitioner certificate preview">
+                <div class="cert-image-wrap">
+                  <div class="cert-badge-floating mono"><i class="fa-brands fa-aws"></i> AWS Cloud Computing</div>
+                  <img src="certificates/AWS.png" alt="AWS Cloud Practitioner certificate" class="cert-image" />
+                  <div class="cert-expand-overlay mono"><i class="fa-solid fa-expand"></i> Click to preview full screen</div>
+                </div>
+                <div class="cert-caption">
+                  <div class="cert-caption-header">
+                    <h3>AWS Cloud Computing</h3>
+                    <a href="https://drive.google.com/file/d/1OOs2ZroXA0VUwe4CM3Xjc8OG1M9Cpwpj/view?usp=drive_link" target="_blank" rel="noopener" class="cert-link-btn mono">Open Drive <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                  </div>
+                  <p>Foundational certification covering core AWS services, cloud architecture, security, and billing — issued by Amazon Web Services.</p>
+                </div>
+              </div>
+
+            
+
+              <!-- Certificate 3 Placeholder -->
+              <div class="cert-slide" data-drive-url="https://drive.google.com/file/d/1t7TUgCfB-fJdkMqAJKhF_1v3TxWDuFUH/view?usp=drive_link" aria-label="Machine Learning certificate preview">
+                <div class="cert-image-wrap">
+                  <div class="cert-badge-floating mono"><i class="fa-solid fa-brain"></i> Machine Learning with Python</div>
+                  <img src="certificates/ML-Python.png" alt="Machine Learning certificate" class="cert-image" />
+                  <div class="cert-expand-overlay mono"><i class="fa-solid fa-expand"></i> Click to preview full screen</div>
+                </div>
+                <div class="cert-caption">
+                  <div class="cert-caption-header">
+                    <h3>Machine Learning with Python</h3>
+                    <a href="https://drive.google.com/file/d/1t7TUgCfB-fJdkMqAJKhF_1v3TxWDuFUH/view?usp=drive_link" target="_blank" rel="noopener" class="cert-link-btn mono">Open Drive <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                  </div>
+                  <p>Covers supervised &amp; unsupervised learning, model evaluation, and practical ML pipelines built with PyTorch and scikit-learn.</p>
+                </div>
+              </div>
+
+              <!-- Certificate 4 Placeholder -->
+              <div class="cert-slide" data-drive-url="https://drive.google.com/file/d/1luZYyqHU1XH138RpkT5dyEYea1lhKm8k/view?usp=drive_link" aria-label="Django Web Development certificate preview">
+                <div class="cert-image-wrap">
+                  <div class="cert-badge-floating mono"><i class="fa-solid fa-code"></i> NPTEL - LLMs</div>
+                  <img src="certificates\NPTEL - LLM.png" alt="Django Web Development certificate" class="cert-image" />
+                  <div class="cert-expand-overlay mono"><i class="fa-solid fa-expand"></i> Click to preview full screen</div>
+                </div>
+                <div class="cert-caption">
+                  <div class="cert-caption-header">
+                    <h3>NPTEL - Large Language Model ( LLM )</h3>
+                    <a href="https://drive.google.com/file/d/1luZYyqHU1XH138RpkT5dyEYea1lhKm8k/view?usp=drive_link" target="_blank" rel="noopener" class="cert-link-btn mono">Open Drive <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                  </div>
+                  <p>Large Language Model (LLM) course covers the fundamentals of LLMs, including their architecture, training, fine-tuning, and applications. It delves into various topics such as text generation, summarization, translation, and chatbot development.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <button class="cert-nav cert-next" id="cert-next" aria-label="Next certificate">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="cert-dots" id="cert-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ACHIEVEMENTS -->
+  <section id="achievements" class="alt">
+    <div class="container">
+      <h2 class="section-title reveal"><i class="fa-solid fa-trophy title-icon"></i> Key Achievements</h2>
+
+      <div class="achieve-grid">
+        <div class="achieve-card reveal">
+          <div class="achieve-icon-wrap"><i class="fa-solid fa-server"></i></div>
+          <div class="achieve-body">
+            <h3>Production AWS Hosting</h3>
+            <p>Deployed &amp; hosted a real-time web application (<strong>nexoraquiz.xyz</strong>) on AWS infrastructure.</p>
+          </div>
+        </div>
+
+        <div class="achieve-card reveal">
+          <div class="achieve-icon-wrap"><i class="fa-solid fa-language"></i></div>
+          <div class="achieve-body">
+            <h3>Multilingual AI App</h3>
+            <p>Built an AI-powered agriculture app supporting <strong>10 regional languages</strong> with text-to-speech support.</p>
+          </div>
+        </div>
+
+        <div class="achieve-card reveal">
+          <div class="achieve-icon-wrap"><i class="fa-solid fa-users-gear"></i></div>
+          <div class="achieve-body">
+            <h3>AI Agent Workflows</h3>
+            <p>Contributed to <strong>10+ AI agent</strong> training workflows and recorded 20+ software procedures at SoftAge AI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. LIVE GITHUB ACTIVITY -->
+  <section id="github-stats">
+    <div class="container">
+      <h2 class="section-title reveal"><i class="fa-brands fa-github title-icon"></i> Live GitHub Activity</h2>
+      <p class="section-sub reveal mono">fetched live from GitHub REST API · <span id="gh-updated">loading…</span></p>
+
+      <div class="gh-block reveal">
+        <!-- Stat tiles -->
+        <div class="gh-stat-row" id="gh-stat-row">
+          <div class="gh-stat">
+            <span class="gh-stat-num" id="gh-repos">–</span>
+            <span class="gh-stat-label mono">Public Repositories</span>
+          </div>
+          <div class="gh-stat">
+            <span class="gh-stat-num" id="gh-followers">–</span>
+            <span class="gh-stat-label mono">Followers</span>
+          </div>
+          <div class="gh-stat">
+            <span class="gh-stat-num" id="gh-stars">–</span>
+            <span class="gh-stat-label mono">Total Stars</span>
+          </div>
+          <div class="gh-stat">
+            <span class="gh-stat-num" id="gh-contribs">–</span>
+            <span class="gh-stat-label mono">Contributions / yr</span>
+          </div>
+        </div>
+
+        <!-- Heatmap & Languages -->
+        <div class="gh-panels">
+          <div class="gh-panel">
+            <h3 class="gh-panel-title mono"><i class="fa-solid fa-calendar-days"></i> Contribution Activity</h3>
+            <div class="gh-heatmap-wrap">
+              <div class="gh-heatmap-months mono" id="gh-heatmap-months"></div>
+              <div class="gh-heatmap" id="gh-heatmap">
+                <div class="gh-skeleton"></div>
               </div>
             </div>
-            <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" class="repo-link">
-              <i class="fa-brands fa-github"></i> View GitHub Profile
-            </a>
+            <div class="gh-heatmap-legend mono">
+              <span>Less</span>
+              <span class="gh-cell" data-level="0"></span>
+              <span class="gh-cell" data-level="1"></span>
+              <span class="gh-cell" data-level="2"></span>
+              <span class="gh-cell" data-level="3"></span>
+              <span class="gh-cell" data-level="4"></span>
+              <span>More</span>
+            </div>
           </div>
-        </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE / INTERNSHIPS -->
-<section id="experience" class="alt">
-  <div class="container">
-    <h2 class="section-title reveal">Experience &amp; Internships</h2>
-
-    <div class="exp-grid">
-      <div class="exp-card reveal">
-        <div class="exp-head">
-          <i class="fa-solid fa-robot"></i>
-          <div>
-            <h3>AI Trainer</h3>
-            <span class="mono exp-org">SoftAge AI</span>
-          </div>
-        </div>
-        <ul>
-          <li>Recorded 20+ software workflows on Windows to support AI training for LAMs and Action Agents</li>
-          <li>Contributed to 10+ AI agents by curating tool interactions for financial tasks</li>
-          <li>Captured real-use digital processes for risk analysis and optimization</li>
-        </ul>
-      </div>
-
-      <div class="exp-card reveal">
-        <div class="exp-head">
-          <i class="fa-brands fa-aws"></i>
-          <div>
-            <h3>AWS Cloud Computing</h3>
-            <span class="mono exp-org">Self-directed / APSSDC</span>
-          </div>
-        </div>
-        <ul>
-          <li>Deployed and hosted a production-ready real-time web app through AWS EC2</li>
-          <li>Configured Application Load Balancer and Amazon Route 53 for high availability &amp; domain management</li>
-          <li>Completed hands-on training in EC2, S3, cloud deployment and security</li>
-        </ul>
-      </div>
-
-      <div class="exp-card reveal">
-        <div class="exp-head">
-          <i class="fa-solid fa-brain"></i>
-          <div>
-            <h3>Machine Learning with Python</h3>
-            <span class="mono exp-org">Internship — APSSDC</span>
-          </div>
-        </div>
-        <ul>
-          <li>Developed an AI-based crop advisory platform using FastAPI, PyTorch and OpenCV</li>
-          <li>Built plant disease detection, soil analysis and personalized farming recommendations</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <h2 class="section-title reveal">Education</h2>
-
-    <ul class="timeline">
-      <li class="reveal">
-        <strong>B.Tech — Information Technology</strong>
-        <span class="timeline-date mono">2023 – 2027</span>
-        <p>Andhra Loyola Institute of Engineering and Technology (ALIET), Vijayawada</p>
-        <em>Currently Pursuing</em>
-      </li>
-      <li class="reveal">
-        <strong>Class XII (BIEAP)</strong>
-        <span class="timeline-date mono">2023</span>
-        <p>Vijaya Jyothi Junior College — 82.1%</p>
-      </li>
-      <li class="reveal">
-        <strong>Class X (SSC)</strong>
-        <span class="timeline-date mono">2021</span>
-        <p>Municipal High School — CGPA 9.0 / 10</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements" class="alt">
-  <div class="container">
-    <h2 class="section-title reveal">Achievements</h2>
-    <div class="achieve-grid">
-      <div class="achieve-card reveal">
-        <i class="fa-solid fa-server"></i>
-        <p>Deployed &amp; hosted a real-time web application (<strong>nexoraquiz.xyz</strong>) on AWS infrastructure</p>
-      </div>
-      <div class="achieve-card reveal">
-        <i class="fa-solid fa-language"></i>
-        <p>Built an AI-powered agriculture app supporting <strong>10 regional languages</strong></p>
-      </div>
-      <div class="achieve-card reveal">
-        <i class="fa-solid fa-users-gear"></i>
-        <p>Contributed to <strong>10+ AI agent</strong> training workflows at SoftAge AI</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GITHUB STATS — LIVE -->
-<section id="github-stats">
-  <div class="container">
-    <h2 class="section-title reveal">Live GitHub Activity</h2>
-    <p class="section-sub reveal mono">fetched live from the GitHub API · <span id="gh-updated">loading…</span></p>
-
-    <div class="gh-block reveal">
-
-      <div class="gh-stat-row" id="gh-stat-row">
-        <div class="gh-stat">
-          <span class="gh-stat-num" id="gh-repos">–</span>
-          <span class="gh-stat-label mono">Repositories</span>
-        </div>
-        <div class="gh-stat">
-          <span class="gh-stat-num" id="gh-followers">–</span>
-          <span class="gh-stat-label mono">Followers</span>
-        </div>
-        <div class="gh-stat">
-          <span class="gh-stat-num" id="gh-stars">–</span>
-          <span class="gh-stat-label mono">Total Stars</span>
-        </div>
-        <div class="gh-stat">
-          <span class="gh-stat-num" id="gh-contribs">–</span>
-          <span class="gh-stat-label mono">Contributions / yr</span>
-        </div>
-      </div>
-
-      <div class="gh-panels">
-        <div class="gh-panel">
-          <h3 class="gh-panel-title mono">contribution activity</h3>
-          <div class="gh-heatmap-wrap">
-            <div class="gh-heatmap-months mono" id="gh-heatmap-months"></div>
-            <div class="gh-heatmap" id="gh-heatmap">
+          <div class="gh-panel">
+            <h3 class="gh-panel-title mono"><i class="fa-solid fa-code"></i> Top Languages</h3>
+            <div class="gh-langs" id="gh-langs">
               <div class="gh-skeleton"></div>
             </div>
           </div>
-          <div class="gh-heatmap-legend mono">
-            <span>Less</span>
-            <span class="gh-cell" data-level="0"></span>
-            <span class="gh-cell" data-level="1"></span>
-            <span class="gh-cell" data-level="2"></span>
-            <span class="gh-cell" data-level="3"></span>
-            <span class="gh-cell" data-level="4"></span>
-            <span>More</span>
-          </div>
         </div>
 
-        <div class="gh-panel">
-          <h3 class="gh-panel-title mono">top languages</h3>
-          <div class="gh-langs" id="gh-langs">
-            <div class="gh-skeleton"></div>
-          </div>
-        </div>
+        <!-- Fallback Message -->
+        <p class="gh-fallback mono" id="gh-fallback" hidden>
+          Unable to reach the GitHub API right now — <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener">view live profile directly on GitHub</a>.
+        </p>
+
+        <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" class="repo-link gh-profile-link">
+          <i class="fa-brands fa-github"></i> View Full GitHub Profile
+        </a>
       </div>
+    </div>
+  </section>
 
-      <p class="gh-fallback mono" id="gh-fallback" hidden>
-        Couldn't reach the GitHub API right now — <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener">view the live profile on GitHub instead</a>.
+  <!-- 10. CONTACT -->
+  <section id="contact" class="alt">
+    <div class="container">
+      <h2 class="section-title reveal"><i class="fa-solid fa-paper-plane title-icon"></i> Contact Me</h2>
+
+      <p class="center-text reveal">
+        Currently looking for an internship to contribute to real-world, full-stack and cloud projects. Feel free to connect!
       </p>
 
+      <div class="socials reveal">
+        <a href="mailto:chaithanyakumar002@gmail.com" aria-label="Email Chaithanya Kumar Mandula"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/chaithanya-kumar-163b432b1/" target="_blank" rel="noopener" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+        <a href="tel:+919515744913" aria-label="Phone Call"><i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
 
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-content">
+    <p>© 2026 Chaithanya Kumar Mandula</p>
+    <a href="#home" class="back-to-top mono" aria-label="Back to top of page">
+      Back to top <i class="fa-solid fa-arrow-up"></i>
+    </a>
+  </div>
+</footer>
+
+<!-- FULL-SCREEN CERTIFICATE LIGHTBOX MODAL -->
+<div class="cert-lightbox" id="cert-lightbox" role="dialog" aria-modal="true" aria-label="Full screen certificate preview" hidden>
+  <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+  <div class="lightbox-box">
+    <button class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Close preview"><i class="fa-solid fa-xmark"></i></button>
+    <div class="lightbox-img-wrap">
+      <img src="" alt="Full size certificate" id="lightbox-img" />
+    </div>
+    <div class="lightbox-bar">
+      <div>
+        <h3 id="lightbox-title">Certificate Title</h3>
+        <p id="lightbox-desc" class="mono">Certificate Description</p>
+      </div>
+      <a href="#" id="lightbox-drive-btn" target="_blank" rel="noopener" class="btn btn-primary mono">
+        Open Google Drive <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- CONTACT -->
-<section id="contact" class="alt">
-  <div class="container">
-    <h2 class="section-title reveal">Contact Me</h2>
-
-    <p class="center-text reveal">
-      Looking for internships and learning opportunities. Feel free to connect!
-    </p>
-
-    <div class="socials reveal">
-      <a href="mailto:chaithanyakumar002@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/Chaithanyamandula" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/chaithanya-kumar-163b432b1/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="tel:+919515744913" aria-label="Phone"><i class="fas fa-phone"></i></a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2025 Chaithanya Kumar Mandula</p>
-</footer>
-
+<!-- Tooltip element for heatmap -->
 <div class="gh-tooltip mono" id="gh-tooltip" role="status" aria-hidden="true"></div>
 
 <script src="script.js"></script>
